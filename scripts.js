@@ -25,7 +25,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     } else {
         showSuccessMessage('Login successful! Redirecting to the next page...');
         setTimeout(() => {
-            window.location.href = 'image.html'; // Redirect to the image.html page
+            window.location.href = 'main.html'; // Redirect to the image.html page
         }, 1000); // Wait 1 second before redirecting
     }
 });
