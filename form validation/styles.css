@@ -1,0 +1,306 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #ff5e57; }
+}
+
+/* Typing Text Animation */
+.typing-text {
+    font-family: 'Karla', sans-serif;
+    font-size: 3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid;
+    width: 0;
+    animation: typing 5s steps(50, end), blink-caret 0.75s step-end infinite;
+    color: #ff5e57;
+}
+
+/* Container Styles */
+.container {
+    display: flex;
+    width: 85%;
+    height: 85%;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.8);
+    border-radius: 40px;
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
+}
+
+.left-side, .right-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 80px;
+    position: relative;
+    overflow: auto; /* Ensure that content is scrollable if necessary */
+}
+
+.left-side {
+    background: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+}
+
+.left-side .typing-text {
+    margin-bottom: 30px;
+}
+
+.right-side {
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Login Form Styles */
+.login-form {
+    background: url('right_background.avif') no-repeat center center;
+    background-size: cover;
+    padding: 100px;
+    border-radius: 30px;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.login-form h2 {
+    font-family: 'Roboto', sans-serif;
+    color: #ff6f61;
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.login-form h3 {
+    font-family: 'Roboto', sans-serif;
+    color: #ff6f61;
+    margin-bottom: 50px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.input-group {
+    margin-bottom: 45px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 20px;
+    border: 3px solid #ff6f61;
+    border-radius: 30px;
+    background-color: #f7f9fc;
+    font-size: 18px;
+    transition: border-color 0.4s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #d83a56;
+    outline: none;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 16px;
+    display: none;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 20px;
+    background-color: #ff6f61;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn-login:hover {
+    background-color: #d83a56;
+    transform: translateY(-5px);
+}
+
+.register-button {
+    margin-top: 45px;
+    padding: 20px 40px;
+    background-color: #ffffff;
+    color: #ff7e61;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+.register-button:hover {
+    background-color: #f7f9fc;
+    transform: translateY(-5px);
+}
+
+.instagram-icon {
+    width: 60px;
+    height: 60px;
+    background: url('picture.avif') no-repeat center center;
+    background-size: cover;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+}
+
+.instagram-icon:hover {
+    transform: rotate(360deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Signup Form Specific Styles */
+.signup-container {
+    width: 100%;
+    max-width: 800px; /* Increased max-width for a wider box */
+    background: url('picture.avif') no-repeat center center;
+    background-size: cover;
+    border-radius: 20px;
+    padding: 20px; /* Padding remains the same */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Ensure it's on top */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+    max-height: 80vh; /* Limit height to 80% of viewport height */
+}
+
+.signup-container h1 {
+    font-family: 'Karla', sans-serif;
+    color: #ff6857f2;
+    font-size: 2rem; /* Adjusted font size for better fit */
+    margin-bottom: 20px; /* Adjusted margin */
+}
+
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Adjusted gap for better spacing */
+}
+
+.signup-container .input-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px; /* Adjusted space between input fields */
+}
+
+.signup-container input[type="text"],
+.signup-container input[type="email"],
+.signup-container input[type="password"],
+.signup-container input[type="tel"],
+.signup-container input[type="file"] {
+    width: 100%;
+    padding: 12px; /* Adjusted padding for better fit */
+    border: 2px solid #ff5e57;
+    border-radius: 30px;
+    background-color: #f7f9fc;
+    font-size: 1rem;
+    transition: border-color 0.4s ease;
+    outline: none;
+    position: relative;
+}
+
+.signup-container input[type="text"]:focus,
+.signup-container input[type="email"]:focus,
+.signup-container input[type="password"]:focus,
+.signup-container input[type="tel"]:focus {
+    border-color: #d83a56;
+}
+
+.signup-container input::placeholder {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.signup-container .error-message {
+    font-size: 0.85rem;
+    color: #e74c3c;
+    margin-top: 5px;
+    display: none;
+}
+
+.signup-container .btn-submit {
+    padding: 12px; /* Adjusted padding for better fit */
+    width: 100%;
+    background-color: #ff5e57;
+    border: none;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 1.1rem; /* Adjusted font size for better fit */
+    cursor: pointer;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.signup-container .btn-submit:hover {
+    background-color: #d83a56;
+    transform: translateY(-5px);
+}
+
+.signup-container p {
+    margin-top: 15px; /* Adjusted margin */
+    font-size: 0.9rem;
+}
+
+.signup-container p a {
+    color: #ff5e57;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.signup-container p a:hover {
+    color: #d83a56;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .left-side, .right-side {
+        padding: 30px;
+    }
+
+    .signup-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .login-form {
+        padding: 20px;
+    }
+}

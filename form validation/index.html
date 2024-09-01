@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <h1>Welcome to Instagram Page!!!</h1>
+            <p>Share your moments and connect with people around the world. Explore photos, videos, and stories from your friends and favorites.</p>
+            <a href="signup.html" class="register-button">Sign Up</a>
+        </div>
+        <div class="right-side">
+            <div class="login-form">
+                <h2>Login</h2>
+                <form id="login-form">
+                    <div id="alert-message" style="display:none;"></div>
+                    <div class="input-group">
+                        <label for="login-username"><h3>Username or Email *</h3><span class="required"></span></label>                        <input type="text" id="login-username" placeholder="Username" required>
+                        <small class="error-message" id="login-username-error"></small>
+                    </div>
+                    <div class="input-group">
+                        <label for="login-password"><h3>Password *</h3><span class="required"></span></label>
+                        <input type="password" id="login-password" placeholder="Password" required>
+                        <small class="error-message" id="login-password-error"></small>
+                    </div>
+                    <button type="submit" class="btn-login">Login</button>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
+
