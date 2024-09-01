@@ -43,7 +43,7 @@ To run the project locally, you will need a web browser that supports HTML5 and 
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/nishanthini09/instagram-style-login-signup.git
+   git clone https://github.com/yourusername/instagram-style-login-signup.git
    ```
 
 2. Navigate to the project directory:
