@@ -5,31 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram Portal</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Karla:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <div class="left-side">
-            <h1>Welcome to Instagram Page!!!</h1>
-            <p>Share your moments and connect with people around the world. Explore photos, videos, and stories from your friends and favorites.</p>
-            <a href="signup.html" class="register-button">Sign Up</a>
-        </div>
-        <div class="right-side">
+
+        <!-- Right Side with Full-Width Login Form -->
+        <div class="centre-side">
             <div class="login-form">
+                <h1>Welcome to Instagram Page!!!</h1>
+                <p>Share your moments and connect with people around the world. Explore photos, 
+                    videos, and stories from your friends and favorites.</p>
                 <h2>Login</h2>
-                <form id="login-form">
+                <form id="login-form" onsubmit="return loginvalidation();">
                     <div id="alert-message" style="display:none;"></div>
                     <div class="input-group">
-                        <label for="login-username"><h3>Username or Email *</h3><span class="required"></span></label>                        <input type="text" id="login-username" placeholder="Username" required>
-                        <small class="error-message" id="login-username-error"></small>
+                        <label for="login-username"><h3>Username or Email *</h3><span class="required"></span></label>
+                        <input type="text" id="user" class="form-control" placeholder="Username" required>
+                        <small class="error-message" id="username"></small>
                     </div>
                     <div class="input-group">
                         <label for="login-password"><h3>Password *</h3><span class="required"></span></label>
-                        <input type="password" id="login-password" placeholder="Password" required>
-                        <small class="error-message" id="login-password-error"></small>
+                        <input type="password" id="pass" class="form-control" placeholder="Password" required>
+                        <small class="error-message" id="passwords"></small>
                     </div>
-                    <button type="submit" class="btn-login">Login</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
                     <a href="#" class="forgot-password">Forgot Password?</a>
+                    <p>New account creation? <a href="signup.html">Signup</a></p>
                 </form>
             </div>
         </div>
@@ -37,4 +38,3 @@
     <script src="scripts.js"></script>
 </body>
 </html>
-

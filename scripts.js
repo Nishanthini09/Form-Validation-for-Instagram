@@ -1,95 +1,114 @@
-document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
+function signupValidation() {
+    var name = document.getElementById("name").value;
+    var user = document.getElementById("user").value;
+    var pass = document.getElementById("pass").value;
+    var confirmpass = document.getElementById("conpass").value;
+    var mobileNumber = document.getElementById("mobileNumber").value;
+    var emails = document.getElementById("emails").value;
 
     // Clear previous error messages
-    clearErrors();
+    clearErrorMessages();
 
-    // Get input values
-    const username = document.getElementById('login-username').value.trim();
-    const password = document.getElementById('login-password').value.trim();
-
-    let isValid = true;
-
-    if (!isValidUsernameOrEmail(username)) {
-        showError('login-username-error', 'Invalid username or email address.');
-        isValid = false;
+    if (name == "") {
+        document.getElementById("Name").innerHTML = " ** Please fill the Name field";
+        return false;
     }
 
-    if (!isValidPassword(password)) {
-        showError('login-password-error', 'Invalid password. Password must be at least 8 characters long, include at least one uppercase letter, one number, and one special character.');
-        isValid = false;
+    if (emails == "") {
+        document.getElementById("emailids").innerHTML = " ** Please fill the email id field";
+        return false;
+    }
+    if (emails.indexOf("@") <= 0 || !/\.[a-z]{2,}$/.test(emails)) {
+        document.getElementById("emailids").innerHTML = " ** Invalid Email";
+        return false;
     }
 
-    if (!isValid) {
-        showAlert('Please correct the errors in the form before proceeding.');
-    } else {
-        showSuccessMessage('Login successful! Redirecting to the next page...');
-        setTimeout(() => {
-            window.location.href = 'main.html'; // Redirect to the image.html page
-        }, 1000); // Wait 1 second before redirecting
+    if (user == "") {
+        document.getElementById("username").innerHTML = " ** Please fill the username field";
+        return false;
     }
-});
+    if (user.length <= 3 || user.length > 20) {
+        document.getElementById("username").innerHTML = " ** Username length must be between 3 and 20";
+        return false;
+    }
+    if (!isNaN(user)) {
+        document.getElementById("username").innerHTML = " ** Only characters are allowed";
+        return false;
+    }
 
-// Helper function to show error messages
-function showError(elementId, message) {
-    const errorElement = document.getElementById(elementId);
-    if (errorElement) {
-        errorElement.textContent = message;
-        errorElement.style.display = 'block';
+    if (pass == "") {
+        document.getElementById("passwords").innerHTML = " ** Please fill the password field";
+        return false;
     }
+    if (pass.length <= 5 || pass.length > 20) {
+        document.getElementById("passwords").innerHTML = " ** Password length must be between 5 and 20";
+        return false;
+    }
+
+    if (pass != confirmpass) {
+        document.getElementById("confrmpass").innerHTML = " ** Password Mismatch";
+        return false;
+    }
+
+    if (confirmpass == "") {
+        document.getElementById("confrmpass").innerHTML = " ** Please fill the confirm password field";
+        return false;
+    }
+
+    if (mobileNumber == "") {
+        document.getElementById("mobileno").innerHTML = " ** Please fill the mobile number field";
+        return false;
+    }
+    if (isNaN(mobileNumber) || mobileNumber.length != 11) {
+        document.getElementById("mobileno").innerHTML = " ** Mobile Number must be 11 digits only";
+        return false;
+    }
+
+    // If validation passes
+    alert("Signup successful!");
+    return true; // Allow form submission
 }
 
-// Helper function to clear all error messages
-function clearErrors() {
-    document.querySelectorAll('.error-message').forEach(function(errorElement) {
-        errorElement.style.display = 'none';
-    });
-    // Clear alert message
-    const alertElement = document.getElementById('alert-message');
-    if (alertElement) {
-        alertElement.textContent = '';
-        alertElement.style.display = 'none';
+function loginValidation() {
+    var user = document.getElementById("login-user").value;
+    var pass = document.getElementById("login-pass").value;
+
+    // Clear previous error messages
+    document.getElementById("login-username-error").innerHTML = "";
+    document.getElementById("login-password-error").innerHTML = "";
+
+    if (user == "") {
+        document.getElementById("login-username-error").innerHTML = " ** Please fill the username field";
+        return false;
     }
-}
-
-// Function to display an alert message at the top
-function showAlert(message) {
-    const alertElement = document.getElementById('alert-message');
-    if (alertElement) {
-        alertElement.textContent = message;
-        alertElement.style.display = 'block';
-        alertElement.style.backgroundColor = 'white'; // White background for alert messages
-        alertElement.style.color = 'black'; // Black text color for alert messages
-        alertElement.style.border = '1px solid red'; // Red border to indicate alert
-        alertElement.style.padding = '10px'; // Padding for better readability
-        alertElement.style.borderRadius = '5px'; // Rounded corners
+    if (user.length <= 2 || user.length > 20) {
+        document.getElementById("login-username-error").innerHTML = " ** Username length must be between 2 and 20";
+        return false;
     }
-}
-
-// Function to display a success message
-function showSuccessMessage(message) {
-    const alertElement = document.getElementById('alert-message');
-    if (alertElement) {
-        alertElement.textContent = message;
-        alertElement.style.display = 'block';
-        alertElement.style.backgroundColor = 'white'; // White background for success messages
-        alertElement.style.color = 'black'; // Black text color for success messages
-        alertElement.style.border = '1px solid green'; // Green border to indicate success
-        alertElement.style.padding = '10px'; // Padding for better readability
-        alertElement.style.borderRadius = '5px'; // Rounded corners
+    if (!isNaN(user)) {
+        document.getElementById("login-username-error").innerHTML = " ** Only characters are allowed";
+        return false;
     }
+
+    if (pass == "") {
+        document.getElementById("login-password-error").innerHTML = " ** Please fill the password field";
+        return false;
+    }
+    if (pass.length <= 5 || pass.length > 20) {
+        document.getElementById("login-password-error").innerHTML = " ** Password length must be between 5 and 20";
+        return false;
+    }
+
+    // If validation passes
+    alert("Login successful!");
+    return true; // Allow form submission
 }
 
-// Function to validate username or email
-function isValidUsernameOrEmail(value) {
-    // Placeholder validation logic - customize according to your requirements
-    const usernameOrEmailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email pattern for demo purposes
-    return value.length > 3 || usernameOrEmailPattern.test(value); // Replace with actual validation logic
+function clearErrorMessages() {
+    document.getElementById("Name").innerHTML = "";
+    document.getElementById("emailids").innerHTML = "";
+    document.getElementById("username").innerHTML = "";
+    document.getElementById("passwords").innerHTML = "";
+    document.getElementById("confrmpass").innerHTML = "";
+    document.getElementById("mobileno").innerHTML = "";
 }
-
-// Function to validate password
-function isValidPassword(value) {
-    const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    return passwordPattern.test(value);
-}
-
